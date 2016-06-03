@@ -45,20 +45,6 @@ Based on [chimp](https://chimp.readme.io/) and therefore [Webdriver](http://webd
 
 See `features/` for more usage examples.
 
-## Tests
-
-To run the test suite:
-
-## Installation
-
-```sh
-# make sure chromium (firefox / phantomjs are untested)
-# is installed
-$ npm install -g chimp
-$ npm install
-$ chimp
-```
-
 To use the steps defined in `lib/api_mock/steps.js` run the functions in the context of one of your own step definition files like this:
 
 ```js
@@ -71,6 +57,18 @@ module.exports = function() {
   // your own step definitions here ..
 
 }
+```
+
+## Tests
+
+To run the test suite:
+
+```sh
+# make sure chromium (firefox / phantomjs are untested)
+# is installed
+$ npm install -g chimp
+$ npm install
+$ chimp
 ```
 
 ## credits
