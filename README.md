@@ -51,7 +51,7 @@ See `features/` for more usage examples.
 $ npm install --save-dev cucumberjs-json-api-mocking
 ```
 
-To use the steps defined in `lib/api_mock/steps.js` run the functions in the context of one of your own step definition files like this:
+To use the steps defined in `lib/api_mock_steps.js` run the functions in the context of one of your own step definition files like this:
 
 ```js
 var json_api = require('cucumberjs-json-api-mocking');
