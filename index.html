@@ -1,0 +1,64 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Testing Cucumber Json Api Step Definitions</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <h3>superagent</h3>
+  <pre id="superagent">
+    { "text": "Hello Fill me with some API Data" }
+  </pre>
+
+  <input onClick="sendSuperagent()" id="superagent_button" type="button" value="superagent"/>
+
+  <h3>reqwest</h3>
+  <pre id="reqwest">
+    { "text": "Hello Fill me with some API Data" }
+  </pre>
+
+  <input onClick="sendReqwest()" id="reqwest_button" type="button" value="reqwest"/>
+
+  <script>
+   sendSuperagent = function() {
+     req = superagent.post("http://localhost:8000/api/auth").send(
+       {
+         name: "admin",
+         password: "password"
+       }
+     ).end(
+       function(error, response) {
+         if (response && response.body) {
+           document.getElementById('superagent').textContent = JSON.stringify(response.body, null, 2);
+         } else {
+           document.getElementById('superagent').textContent = `{"text": "An error occured"}`
+         }
+     });
+   };
+   sendReqwest = function() {
+     reqwest({
+       url: "http://localhost:8000/api/posts",
+       method: "post",
+       data: JSON.stringify({
+         title: "newest blog Post",
+         body: "long opinionated speach about smth. related to Development",
+         tags: "it, programming, zeitgeist",
+         author: "author"
+       }),
+       success: function (resp) {
+         document.getElementById('reqwest').textContent = JSON.stringify(resp, null, 2);
+       },
+       error: function (err) {
+         document.getElementById('reqwest').textContent = '{ "text": "an error occured"}';
+       }
+     });
+   };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reqwest/2.0.5/reqwest.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/superagent/1.2.0/superagent.min.js"></script>
+
+</body>
+</html>
