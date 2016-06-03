@@ -16,6 +16,12 @@ module.exports = function() {
     }
   });
 
+  this.Given(/^I open:$/, function(body) {
+    browser.url(
+      'data:text/html,' + encodeURIComponent(body)
+    );
+  });
+
   this.When(/^I press the Button "([^"]*)"$/, function (name) {
     client.click("#" + name + "_button");
   });
