@@ -9,6 +9,10 @@
 <body>
 
   <h3>superagent</h3>
+  <pre id="superagent-header">
+    { "text": "wating for a header from the backend .." }
+  </pre>
+
   <pre id="superagent">
     { "text": "Hello Fill me with some API Data" }
   </pre>
@@ -24,7 +28,8 @@
 
   <script>
    sendSuperagent = function() {
-     req = superagent.post("http://localhost:8000/api/auth").send(
+     req = superagent.post("http://localhost:8000/api/auth")
+                     .set('Accept', 'application/json').send(
        {
          name: "admin",
          password: "password"
@@ -33,6 +38,8 @@
        function(error, response) {
          if (response && response.body) {
            document.getElementById('superagent').textContent = JSON.stringify(response.body, null, 2);
+           document.getElementById('superagent-header').textContent = JSON.stringify(
+             response.header, null, 2);
          } else {
            document.getElementById('superagent').textContent = `{"text": "An error occured"}`
          }

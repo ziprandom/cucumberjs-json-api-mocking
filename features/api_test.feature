@@ -4,7 +4,6 @@ Feature: API Mocking
   I want to be able to mock api endpoints.
 
   Scenario: Loading a Page/SPA without mocking
-
     Given I visit "../index.html"
 
     When I press the Button "superagent"
@@ -24,6 +23,7 @@ Feature: API Mocking
     """
 
   Scenario: Mocking away the API for superagent
+    Given I visit "../index.html"
 
     # we just open a local file
     # but this could be anything
@@ -47,10 +47,22 @@ Feature: API Mocking
       }
     """
 
+    # We ask for the same post, this time also checking
+    # for the headers
+    Then a "post" to "/api/auth" should have happened with:
+    """
+      # Accept: application/json
+      {
+        "name": "admin",
+        "password": "password"
+      }
+    """
+
     # Now we tell the mocking facility how to answer to
     # this post
     Given the API responds to the "post" on "/api/auth" with "200":
     """
+      # X-Auth-Token: this is a secret token
       {
         "text": "hello, i come directly from a Gherkin Step"
       }
@@ -62,6 +74,16 @@ Feature: API Mocking
     """
       {
         "text": "hello, i come directly from a Gherkin Step"
+      }
+    """
+
+    # we display all the headers in the index js, content-
+    # type is set automatically, but you may override it
+    And the reponse displayed in "superagent-header" should be:
+    """
+      {
+        "content-type": "application/json",
+        "x-auth-token": "this is a secret token"
       }
     """
 

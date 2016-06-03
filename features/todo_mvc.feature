@@ -1,4 +1,3 @@
-@focus
 Feature: TODO MVC
 
   As a Developer using the API Mocking Step Definitions
@@ -57,7 +56,6 @@ Feature: TODO MVC
     """
     Then an active Todo "My fancy new Todo" should be visible
 
-  @focus
   Scenario: Filtering Todos
     Given the API responds to a "get" on "/api/todos" with "200":
     """
