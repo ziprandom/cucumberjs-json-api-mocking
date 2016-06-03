@@ -45,11 +45,17 @@ Based on [chimp](https://chimp.readme.io/) and therefore [Webdriver](http://webd
 
 See `features/` for more usage examples.
 
+## Installation
+
+```sh
+$ npm install --save-dev cucumberjs-json-api-mocking
+```
+
 To use the steps defined in `lib/api_mock/steps.js` run the functions in the context of one of your own step definition files like this:
 
 ```js
-var json_api = require('cucumberjs-json-api-mocking');  // or path to this projects index.js file
-                                                        // will publish soon
+var json_api = require('cucumberjs-json-api-mocking');
+
 module.exports = function() {
 
   json_api.call(this);
@@ -71,5 +77,5 @@ $ npm install
 $ chimp
 ```
 
-## credits
+## Credits
 * [jameslnewell/xhr-mock](https://github.com/jameslnewell/xhr-mock) - `lib/mocking_facility.js` is a modified version of this XHRRequest Mocking Lib
