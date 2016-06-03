@@ -77,11 +77,11 @@ Feature: TODO MVC
     And a completed Todo "Todo 2" should be visible
 
     When I click on the "Completed" Link
-    And an active Todo "Todo 1" should not be visible
+    Then an active Todo "Todo 1" should not be visible
     And a completed Todo "Todo 2" should be visible
 
     When I click on the "Active" Link
-    And an active Todo "Todo 1" should be visible
+    Then an active Todo "Todo 1" should be visible
     And a completed Todo "Todo 2" should not be visible
     Then I click on the "All" Link
 
@@ -145,5 +145,4 @@ Feature: TODO MVC
     Then a Todo "My fancy new Todo" should not be visible
 
     When I click on the "Active" Link
-
     Then an active Todo "My fancy new Todo" should be visible
