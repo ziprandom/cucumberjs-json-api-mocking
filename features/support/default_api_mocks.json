@@ -1,0 +1,13 @@
+[
+    {
+        "endpoint": "http://localhost:8000/api/auth",
+        "headers": {
+            "X-Auth-Token": "this is a secret token"
+        },
+        "method": "post",
+        "code": 200,
+        "body": {
+            "text": "hello, i come directly from a Gherkin Step"
+        }
+    }
+]
