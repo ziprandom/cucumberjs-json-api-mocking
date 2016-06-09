@@ -26,7 +26,6 @@ Feature: API Mocking II
     And I start mocking "http://localhost:8000"
 
   Scenario: loading Mocks from a json file
-    And I start mocking "http://localhost:8000"
     And I load prerecorded mocks from "features/support/default_api_mocks.json"
     When I press the Button "button"
 

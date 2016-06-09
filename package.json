@@ -1,6 +1,6 @@
 {
   "name": "cucumberjs-json-api-mocking",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A collection of Cucumber step definitions to comfortably define API mocks and expectations inline with Gherkin. Mocks the Browsers XMLHttpRequest object and is JS framework agnostic.",
   "main": "index.js",
   "scripts": {

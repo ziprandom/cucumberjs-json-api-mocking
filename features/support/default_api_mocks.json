@@ -1,6 +1,6 @@
 [
     {
-        "endpoint": "http://localhost:8000/api/auth",
+        "endpoint": "/api/auth",
         "headers": {
             "X-Auth-Token": "this is a secret token"
         },
